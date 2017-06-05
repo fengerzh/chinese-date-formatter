@@ -1,0 +1,26 @@
+{
+  "name": "chinese-date-formatter",
+  "version": "0.0.1",
+  "description": "Format Chinese date.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fengerzh/chinese-date-formatter.git"
+  },
+  "author": "Buzz Zhang <buzz.zhang@gmail.com> (https://www.wecan.ai)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fengerzh/chinese-date-formatter/issues"
+  },
+  "homepage": "https://github.com/fengerzh/chinese-date-formatter#readme",
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "devDependencies": {
+    "chai": "^4.0.1",
+    "mocha": "^3.4.2"
+  }
+}
