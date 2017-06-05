@@ -1,5 +1,5 @@
 {
-  "name": "chinese-date-formatter",
+  "name": "chinese-datetime-formatter",
   "version": "0.0.1",
   "description": "Format Chinese date.",
   "main": "index.js",
