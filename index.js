@@ -8,7 +8,7 @@
 const dateFormat = require('dateformat');
 
 module.exports = (dateTimeString, format) => {
-  const d = new Date(dateTimeString.replace('-', '/'));
+  const d = new Date(dateTimeString.replace(/-/g, '/'));
   let formatResult = dateFormat(d, format);
   const n = d.getDay();
   const weekDays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
