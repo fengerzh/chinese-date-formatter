@@ -1,46 +1,41 @@
-'use strict';
+/* global describe, it */
 
-var expect = require('chai').expect;
-var numFormatter = require('../index');
+const expect = require('chai').expect;
+const chineseDateTimeFormatter = require('../index');
 
-describe('#numFormatter', function() {
-    it('should convert single digits', function() {
-        var result = numFormatter(1);
-        expect(result).to.equal('1');
-    });
+describe('#chineseDateTimeFormatter', () => {
+  it('should convert basic date time string', () => {
+    const result = chineseDateTimeFormatter('2016-02-20 10:00:00', 'm月d日 ww hh:MM');
+    expect(result).to.equal('2月20日 星期六 10:00');
+  });
 
-    it('should convert double digits', function() {
-        var result = numFormatter(12);
-        expect(result).to.equal('12');
-    });
+  it('should convert basic date string', () => {
+    const result = chineseDateTimeFormatter('2016-02-20 10:00:00', 'm月d日 ww');
+    expect(result).to.equal('2月20日 星期六');
+  });
 
-    it('should convert triple digits', function() {
-        var result = numFormatter(123);
-        expect(result).to.equal('123');
-    });
+  it('should convert basic date string with weekday as zhou', () => {
+    const result = chineseDateTimeFormatter('2016-02-20 10:00:00', 'm月d日 (zz)');
+    expect(result).to.equal('2月20日 (周六)');
+  });
 
-    it('should convert 4 digits', function() {
-        var result = numFormatter(1234);
-        expect(result).to.equal('1,234');
-    });
+  it('should convert basic date string without Chinese', () => {
+    const result = chineseDateTimeFormatter('2016-02-20 10:00:00', 'yyyy-mm-d');
+    expect(result).to.equal('2016-02-20');
+  });
 
-    it('should convert 5 digits', function() {
-        var result = numFormatter(12345);
-        expect(result).to.equal('12,345');
-    });
+  it('should convert basic date string only with time', () => {
+    const result = chineseDateTimeFormatter('2016-02-20 10:00:00', 'hh:MM:ss');
+    expect(result).to.equal('10:00:00');
+  });
 
-    it('should convert 6 digits', function() {
-        var result = numFormatter(123456);
-        expect(result).to.equal('123,456');
-    });
+  it('should convert basic time string without seconds', () => {
+    const result = chineseDateTimeFormatter('2016-02-20 10:00:00', 'hh:MM');
+    expect(result).to.equal('10:00');
+  });
 
-    it('should convert 7 digits', function() {
-        var result = numFormatter(1234567);
-        expect(result).to.equal('1,234,567');
-    });
-
-    it('should convert 8 digits', function() {
-        var result = numFormatter(12345678);
-        expect(result).to.equal('12,345,678');
-    });
+  it('should convert basic date string without year', () => {
+    const result = chineseDateTimeFormatter('2017-06-07 10:00:00', 'm月d日');
+    expect(result).to.equal('6月7日');
+  });
 });
