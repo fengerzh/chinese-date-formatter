@@ -25,6 +25,7 @@ dateFormat('2016-02-20 10:00:00', 'm月d日 ww hh:MM');
 // With different week name
 dateFormat('2016-02-20 10:00:00', '2016-02-20 10:00:00', 'm月d日 (zz)');
 // '2月20日 (周六)'
+```
 
 ### Mask options
 
@@ -52,7 +53,7 @@ Mask | Description
 `o` | GMT/UTC timezone offset, e.g. -0500 or +0230.
 `s` | Seconds; no leading zero for single-digit seconds.
 `ss` | Seconds; leading zero for single-digit seconds.
-`S` | The date ordinal suffix (st, nd, rd, or th). Works well with `d`.
+`S` | The date's ordinal suffix (st, nd, rd, or th). Works well with `d`.
 `l` |  Milliseconds; gives 3 digits.
 `L` | Milliseconds; gives 2 digits.
 `t`	| Lowercase, single-character time marker string: a or p.
