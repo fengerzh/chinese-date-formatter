@@ -27,6 +27,7 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "dateformat": "^2.0.0"
+    "cldr-data": "^31.0.2",
+    "globalize": "^1.2.3"
   }
 }

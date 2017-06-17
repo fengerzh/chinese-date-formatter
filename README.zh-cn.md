@@ -23,63 +23,23 @@ $ npm install chinese-datetime-formatter
 const dateFormat = require('chinese-datetime-formatter');
 
 // 基本用法
-dateFormat('2016-02-20 10:00:00', 'm月d日 ww hh:MM');
+dateFormat('2016-02-20 10:00:00', 'MMMd日 EEEE HH:mm');
 // 2月20日 星期六 10:00
 
 // 使用周作为星期代称
-dateFormat('2016-02-20 10:00:00', 'm月d日 (zz)');
+dateFormat('2016-02-20 10:00:00', 'MMMd日 (EEE)');
 // '2月20日 (周六)'
 
 // 中文日期的表达
-dateFormat('2016-02-20 10:00:00', 'YYYY年YUE月RI日 ww hh:MM');
-// '二〇一六年二月二十日 星期六 10:00'
+dateFormat('2016-02-20 10:00:00', 'yyyy年M月d日 EEEE HH:mm', 'zh-u-nu-native');
+// '二〇一六年二月二〇日 星期六 一〇:〇〇'
 ```
 
 ## 参数
 
 - `datetime`: **string or Object** - Date对象类型或字符串，字符串格式必须为`2010-12-25 23:08:09`或`2010/12/25 23:08:09`
-- `format`: **string** - 格式化参数，如下表所述
-
-### 格式化字符
-
-标记 | 描述
----- | -----------
-`d` | 阿拉伯数字的日期，没有前导0。
-`dd` | 阿拉伯数字日期，有前导0。
-`RI` | 中文日期，如二十三。
-`ddd` | 三个字母的英文周几的缩写。
-`dddd` | 英文周几的全称。
-`ww` | 表示为星期几的形式。
-`zz` | 表示为周几的形式。
-`m` | 阿拉伯数字月份，没有前导0。
-`mm` | 阿拉伯数字月份，有前导0。
-`mmm` | 三个字母的英文月份缩写.
-`mmmm` | 英文月份全称.
-`YUE` | 中文月份数字如十二.
-`yy` | 两位数字的阿拉伯年份.
-`yyyy` | 四位数字的阿拉伯年份.
-`YYYY` | 四位数字的中文年份，如二〇一七.
-`h` | 小时，没有前导0，最大12点.
-`hh` | 小时，有前导0，最大12点.
-`H` | 小时，没有前导0，最大24点.
-`HH` | 小时，有前导0，最大24点.
-`M` | 分钟，没有前导0.
-`MM` | 分钟，有前导0.
-`N` | ISO 8601 numeric representation of the day of the week.
-`o` | GMT/UTC timezone offset, e.g. -0500 or +0230.
-`s` | 秒，没有前导0.
-`ss` | 秒，有前导0.
-`S` | The date ordinal suffix (st, nd, rd, or th). Works well with `d`.
-`l` | 有3位数的毫秒.
-`L` | 有2位数的毫秒.
-`t`	| Lowercase, single-character time marker string: a or p.
-`tt` | Lowercase, two-character time marker string: am or pm.
-`T` | Uppercase, single-character time marker string: A or P.
-`TT` | Uppercase, two-character time marker string: AM or PM.
-`W` | ISO 8601 week number of the year, e.g. 42
-`Z` | US timezone abbreviation, e.g. EST or MDT. With non-US timezones or in the
-`'...'`, `"..."` | Literal character sequence. Surrounding quotes are removed.
-`UTC:` |	Must be the first four characters of the mask. Converts the date from local time to UTC/GMT/Zulu time before applying the mask. The "UTC:" prefix is removed.
+- `format`: **string** - 格式化参数，参见[the unicode CLDR documentation](http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table)
+- `locale`: **string** - 缺省为`zh`，显示阿拉伯数字的月份和日期，如果需要中文日期，可使用`zh-u-nu-native`
 
 ## 版权
 
@@ -87,4 +47,4 @@ dateFormat('2016-02-20 10:00:00', 'YYYY年YUE月RI日 ww hh:MM');
 
 ## 鸣谢
 
-* 基于[felixge/node-dateformat](https://github.com/felixge/node-dateformat)进行扩展。
+* 基本上是对于[globalizejs/globalize](https://github.com/globalizejs/globalize)的一个封装，以简化编写代码时的依赖关系。
