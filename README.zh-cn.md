@@ -1,11 +1,15 @@
 # 中文日期时间格式化
+
+[![npm](https://img.shields.io/npm/v/chinese-datetime-formatter.svg)](https://www.npmjs.com/package/chinese-datetime-formatter)
+[![npm](https://img.shields.io/npm/dm/chinese-datetime-formatter.svg)](https://www.npmjs.com/package/chinese-datetime-formatter)
+[![npm](https://img.shields.io/npm/dt/chinese-datetime-formatter.svg)](https://www.npmjs.com/package/chinese-datetime-formatter)
+[![npm](https://img.shields.io/npm/l/chinese-datetime-formatter.svg)](https://www.npmjs.com/package/chinese-datetime-formatter)
+[![Build Status](https://travis-ci.org/fengerzh/chinese-date-formatter.svg?branch=master)](https://travis-ci.org/fengerzh/chinese-date-formatter)
+[![Coverage Status](https://coveralls.io/repos/github/fengerzh/chinese-date-formatter/badge.svg?branch=master)](https://coveralls.io/github/fengerzh/chinese-date-formatter?branch=master)
+
 把日期和时间格式化为简体中文形式
 
 *其他语言版本: [English](README.md), [简体中文](README.zh-cn.md).*
-
-[![Build Status](https://travis-ci.org/fengerzh/chinese-date-formatter.svg?branch=master)](https://travis-ci.org/fengerzh/chinese-date-formatter)
-
-[![Coverage Status](https://coveralls.io/repos/github/fengerzh/chinese-date-formatter/badge.svg?branch=master)](https://coveralls.io/github/fengerzh/chinese-date-formatter?branch=master)
 
 ## 安装
 
@@ -23,9 +27,18 @@ dateFormat('2016-02-20 10:00:00', 'm月d日 ww hh:MM');
 // 2月20日 星期六 10:00
 
 // 使用周作为星期代称
-dateFormat('2016-02-20 10:00:00', '2016-02-20 10:00:00', 'm月d日 (zz)');
+dateFormat('2016-02-20 10:00:00', 'm月d日 (zz)');
 // '2月20日 (周六)'
+
+// 中文日期的表达
+dateFormat('2016-02-20 10:00:00', 'YYYY年YUE月RI日 ww hh:MM');
+// '二〇一六年二月二十日 星期六 10:00'
 ```
+
+## 参数
+
+- `datetime`: **string or Object** - Date对象类型或字符串，字符串格式必须为`2010-12-25 23:08:09`或`2010/12/25 23:08:09`
+- `format`: **string** - 格式化参数，如下表所述
 
 ### 格式化字符
 
@@ -33,6 +46,7 @@ dateFormat('2016-02-20 10:00:00', '2016-02-20 10:00:00', 'm月d日 (zz)');
 ---- | -----------
 `d` | 阿拉伯数字的日期，没有前导0。
 `dd` | 阿拉伯数字日期，有前导0。
+`RI` | 中文日期，如二十三。
 `ddd` | 三个字母的英文周几的缩写。
 `dddd` | 英文周几的全称。
 `ww` | 表示为星期几的形式。
@@ -41,8 +55,10 @@ dateFormat('2016-02-20 10:00:00', '2016-02-20 10:00:00', 'm月d日 (zz)');
 `mm` | 阿拉伯数字月份，有前导0。
 `mmm` | 三个字母的英文月份缩写.
 `mmmm` | 英文月份全称.
+`YUE` | 中文月份数字如十二.
 `yy` | 两位数字的阿拉伯年份.
 `yyyy` | 四位数字的阿拉伯年份.
+`YYYY` | 四位数字的中文年份，如二〇一七.
 `h` | 小时，没有前导0，最大12点.
 `hh` | 小时，有前导0，最大12点.
 `H` | 小时，没有前导0，最大24点.
