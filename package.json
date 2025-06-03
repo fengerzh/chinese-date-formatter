@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec",
-    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
+    "cover": "nyc mocha"
   },
   "repository": {
     "type": "git",
@@ -21,13 +21,12 @@
     "node": ">=4.2.4"
   },
   "devDependencies": {
-    "chai": "^4.0.1",
-    "coveralls": "^2.13.1",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.4.2"
+    "chai": "^5.2.0",
+    "mocha": "^11.5.0",
+    "nyc": "^17.1.0"
   },
   "dependencies": {
-    "cldr-data": "^31.0.2",
-    "globalize": "^1.2.3"
+    "cldr-data": "^36.0.4",
+    "globalize": "^1.7.0"
   }
 }
